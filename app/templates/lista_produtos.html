@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Produtos</title>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <ul>
+        {% for produto in produtos %}
+        <li>
+            <strong>{{ produto.nome }}</strong> - {{ produto.descricao }} - R$ {{ produto.preco }}
+            <form action="{{ url_for('excluir_produto', id=produto.id) }}" method="post" style="display: inline;">
+                <button type="submit">Excluir</button>
+            </form>
+            <a href="{{ url_for('editar_produto', id=produto.id) }}">Editar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}" style="color: red">Logout</a>
+    <a href="{{ url_for('novo_produto') }}">Novo Produto</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Produto</title>
+</head>
+<body>
+    <h1>Novo Produto</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.nome.label }}<br>
+            {{ form.nome(size=32) }}<br>
+            {% for error in form.nome.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.descricao.label }}<br>
+            {{ form.descricao(size=64) }}<br>
+            {% for error in form.descricao.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.preco.label }}<br>
+            {{ form.preco }}<br>
+            {% for error in form.preco.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            <button type="submit">Criar Produto</button>
+        </p>
+    </form>
+</body>
+</html>
